@@ -1,0 +1,18 @@
+{
+    "name": "speaker-project",
+    "version": "1.0.0",
+    "description": "speaker calculator",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "watch": "nodemon --exec electron ."
+    },
+    "author": "Colin Robbins",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^13.0.1"
+    },
+    "dependencies": {
+        "nodemon": "^2.0.7"
+    }
+}
