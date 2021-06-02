@@ -1,10 +1,10 @@
 const { app, BrowserWindow } = require('electron');
 const { session } = require('electron');
+require('@electron/remote/main').initialize();
 
 let mainWindow;
-let secondaryWindow;
 
-function createWindow() {
+function startApp() {
     // session is wiped at the end of each session 
     let customSes = session.fromPartition('part1');
     // session if you want a persistant session
@@ -16,26 +16,16 @@ function createWindow() {
         height: 800,
         minWidth: 300,
         minHeight: 300,
-        webPreferences: { nodeIntegration: true },
+        webPreferences: { 
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true },
         show: false,
         backgroundColor: 'black',
         titleBarStyle: 'hidden',
         frame: true,
         partition: 'persist:part1'
     });
-
-    secondaryWindow = new BrowserWindow({
-        width: 600,
-        height: 400,
-        webPreferences: {
-            nodeIntegration: true,
-            session: customSes
-        },
-        // model attaches the child window to the parent window
-        // modal: true,
-        parent: mainWindow,
-        show: false
-    })
 
     let ses = mainWindow.webContents.session;
     // default partition uses restart save
@@ -54,32 +44,16 @@ function createWindow() {
 
     console.log("Created window.");
 
-    mainWindow.loadFile('index.html');
-    // secondaryWindow.loadFile('secondary.html');
+    mainWindow.loadFile('./pages/Index/index.html');
+    mainWindow.webContents.openDevTools();
 
-    // setTimeout(() => {
-    //     secondaryWindow.show();
-    //     setTimeout(() => {
-    //         secondaryWindow.close();
-    //         secondaryWindow = null;
-    //     }, 3000);
-    // }, 2000)
-
-    // mainWindow.webContents.openDevTools();
-
-    // waits until the mainwindow is ready before showing it
-    // to avoid a blank screen.
     mainWindow.once('ready-to-show', mainWindow.show)
 
     mainWindow.on('closed', () => {
         mainWindow = null;
     })
-    secondaryWindow.on('closed', () => {
-        secondaryWindow = null;
-    })
 }
 
 app.on('ready', () => {
-    console.log(app.getPath('userData'));
-    createWindow();
+    startApp();
 });

@@ -1,0 +1,12 @@
+.red {
+    color: red;
+}
+
+.main-body {
+    padding-top: 10px;
+    background-color: white;
+    /* stops people from randomly selecting */
+    -webkit-user-select: none;
+    /* allows the entire body to be able to be dragged. */
+    /* -webkit-app-region: drag; */
+}
