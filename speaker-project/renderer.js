@@ -1,13 +1,35 @@
 const { BrowserWindow } = require('@electron/remote');
 
 document.getElementById('information').addEventListener('click', e => {
-    let win = new BrowserWindow({
+    let infoWin = new BrowserWindow({
         width: 300,
         height: 700,
         x: 10,
         y: 10,
         show: false
     });
-    win.loadFile('./pages/Information/information.html');
-    win.on('ready-to-show', win.show)
+    infoWin.loadFile('./pages/Information/information.html');
+    infoWin.on('ready-to-show', infoWin.show)
+});
+
+document.getElementById('determine').addEventListener('click', e =>{
+    let quizWin = new BrowserWindow({
+        width: 500,
+        height: 700,
+        webPreferences: { nodeIntegration: true},
+        show: false
+    })
+    quizWin.loadFile('./pages/QuickCheck/quickcheck.html');
+    quizWin.on('ready-to-show', quizWin.show)
+});
+
+document.getElementById('calculators').addEventListener('click', e=>{
+    let calcWin = new BrowserWindow({
+        width: 500,
+        height: 700,
+        webPreferences: {nodeIntegration:true},
+        show: false
+    })
+    calcWin.loadFile('./pages/Calculators/calculators.html')
+    calcWin.on('ready-to-show', calcWin.show)
 })

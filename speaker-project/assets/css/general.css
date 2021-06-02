@@ -1,0 +1,55 @@
+html{
+    background-color: black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+}
+
+.general {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: auto;
+    color: white;
+}
+
+.general p {
+    font-size: 15px;
+}
+
+.general button{
+    width: 70%;
+    height: 50px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 4 1;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.header img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10%;
+}

@@ -2,7 +2,13 @@ const { app, BrowserWindow } = require('electron');
 const { session } = require('electron');
 require('@electron/remote/main').initialize();
 
+const { Menu, MenuItem } = require('electron');
+
 let mainWindow;
+
+let mainMenu = Menu.buildFromTemplate(
+    require('./menus/TopBar/topbar')
+)
 
 function startApp() {
     // session is wiped at the end of each session 
@@ -31,18 +37,10 @@ function startApp() {
     // default partition uses restart save
     let defaultSes = session.defaultSession;
 
+    Menu.setApplicationMenu(mainMenu);
+
     // clears cookies, any data, etc.
     // ses.clearStorageData()
-
-    defaultSes.cookies.get({})
-        .then(cookies =>
-            console.log(cookies))
-        .catch(errors =>
-            console.log(errors))
-
-    console.log(Object.is(ses, defaultSes));
-
-    console.log("Created window.");
 
     mainWindow.loadFile('./pages/Index/index.html');
     mainWindow.webContents.openDevTools();
