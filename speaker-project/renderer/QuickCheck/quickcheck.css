@@ -2,6 +2,32 @@
     margin-top: 10px;
 }
 
-.quiz{
+#step1{
     display: none;
+    flex-flow: column;
+}
+
+#step2{
+    display: none;
+    flex-flow:column;
+}
+
+#step3-1{
+    display: none;
+    flex-flow:column;
+}
+
+#step3-2{
+    display: none;
+    flex-flow:column;
+}
+
+#step3-3{
+    display: none;
+    flex-flow:column;
+}
+
+#step4{
+    display: none;
+    flex-flow: column;
 }
