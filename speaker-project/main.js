@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 const { session } = require('electron');
 require('@electron/remote/main').initialize();
+const windowStateKeeper = require('electron-window-state')
 
 const { Menu, MenuItem } = require('electron');
 
@@ -11,15 +12,22 @@ let mainMenu = Menu.buildFromTemplate(
 )
 
 function startApp() {
+
+    let state = windowStateKeeper({
+        defaultWidth: 1000,
+        defaultHeight: 600
+    })
+
     // session is wiped at the end of each session 
     let customSes = session.fromPartition('part1');
     // session if you want a persistant session
     let customSes2 = session.fromPartition('persist:part1');
 
     mainWindow = new BrowserWindow({
-
-        width: 1000,
-        height: 800,
+        x: state.x,
+        y: state.y,
+        width: state.width,
+        height: state.height,
         minWidth: 300,
         minHeight: 300,
         webPreferences: { 
@@ -39,10 +47,12 @@ function startApp() {
 
     Menu.setApplicationMenu(mainMenu);
 
+    state.manage(mainWindow);
+
     // clears cookies, any data, etc.
     // ses.clearStorageData()
 
-    mainWindow.loadFile('./pages/Index/index.html');
+    mainWindow.loadFile('./renderer/Index/main.html');
     mainWindow.webContents.openDevTools();
 
     mainWindow.once('ready-to-show', mainWindow.show)
