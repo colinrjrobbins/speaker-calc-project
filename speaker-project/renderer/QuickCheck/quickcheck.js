@@ -6,11 +6,13 @@ let selectSize = document.getElementById('size-option'),
     step3_2 = document.getElementById('step3-2'),
     step3_3 = document.getElementById('step3-3'),
     step4 = document.getElementById('step4'),
+    step5 = document.getElementById('step5'),
     sizeOption = document.getElementById('size-option'),
     systemType = document.getElementById('system-type'),
-    monoSplit = document.getElementById('mono-system'),
-    stereoSplit = document.getElementById('stereo-system'),
-    surroundSystem = document.getElementById('surround-system')
+    monoSplit = document.getElementById('mono-split'),
+    stereoSplit = document.getElementById('stereo-split'),
+    surroundSystem = document.getElementById('surround-split')
+
 
 let startButton = document.getElementById('start')
 
@@ -50,24 +52,22 @@ systemType.addEventListener('change', e => {
     }
 })
 
-monoSplit.addEventListener('change',e=>{
-    if (monoSplit.value === ""){
-        step4.style.display = 'none';
-    }else{
-        step4.style.display = 'flex';
-    }
+monoSplit.addEventListener('change',e => {
+    step4.style.display = 'flex';
 })
-stereoSplit.addEventListener('change',e=>{
-    if (stereoSplit.value === ""){
-        step4.style.display = 'none';
-    }else{
-        step4.style.display = 'flex';
-    }
+stereoSplit.addEventListener('change',e => {
+    step4.style.display = 'flex';
 })
-surroundSystem.addEventListener('change',e=>{
-    if (surroundSystem.value === ""){
-        step4.style.display = 'none';
-    }else{
-        step4.style.display = 'flex';
-    }
+surroundSystem.addEventListener('change',e => {
+    step4.style.display = 'flex';
 })
+
+let powerType = document.getElementById('powering');
+
+if (document.getElementById('yes').checked === true){
+    step5.style.display = 'flex';
+}else if(document.getElementById('no').checked === true){
+    step5.style.display = 'flex';
+}else{
+    step5.style.display = 'none';
+}

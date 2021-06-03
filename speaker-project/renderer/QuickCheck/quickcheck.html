@@ -67,10 +67,19 @@
         </div>
         <div id='step4'>
           <p>Will there be a subwoofer with any of these systems?</p>
-          <input type="radio" id="subwoofYes" name="subwoofer" value="yes">
-            <label for="subwoofYes">Yes</label>
-          <input type="radio" id="subwoofNo" name="subwoofer" value="no">
-            <label for="subwoofNo">No</label>
+          <input type="radio" id="yes" name="subwoofer" value="yes">
+            <label for="yes">Yes</label>
+          <input type="radio" id="no" name="subwoofer" value="no">
+            <label for="no">No</label>
+        </div>
+        <div id='step5'>
+          <p>How will it be powered?</p>
+          <select id='powering' name='power-system'>
+            <option value=""></option>
+            <option value="battery">Battery Powered</option>
+            <option value='wall-power'>120V Outlet</option>
+            <option value='both'>Wall Power + Battery Powered</option>
+          </select>
         </div>
     </div>
     <script src='./quickcheck.js'></script>

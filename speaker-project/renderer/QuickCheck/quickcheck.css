@@ -28,6 +28,17 @@
 }
 
 #step4{
+    margin-top: 15px;
+    display: none;
+    flex-flow: row;
+}
+
+#step4 input{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+#step5{
     display: none;
     flex-flow: column;
 }
