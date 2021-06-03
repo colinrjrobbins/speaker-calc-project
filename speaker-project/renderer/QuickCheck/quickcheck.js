@@ -22,17 +22,20 @@ startButton.addEventListener('click',e=>{
 })
 
 sizeOption.addEventListener('change',e=>{
-    step2.style.display = 'flex';
+    if (sizeOption.value != ""){
+        step2.style.display = 'flex';
+    }
+    else{
+        step2.style.display = 'none';
+    }
 })
 
 systemType.addEventListener('change', e => {
-    console.log(systemType.value)
-    console.log(e.returnValue)
     if (systemType.value === 'mono'){
         step3_1.style.display = 'flex';
         step3_2.style.display = 'none';
         step3_3.style.display = 'none';
-    }else if (systemType.value === 'dual-stereo'){
+    }else if (systemType.value === 'dual'){
         step3_1.style.display = 'none';
         step3_2.style.display = 'flex';
         step3_3.style.display = 'none';
@@ -47,3 +50,24 @@ systemType.addEventListener('change', e => {
     }
 })
 
+monoSplit.addEventListener('change',e=>{
+    if (monoSplit.value === ""){
+        step4.style.display = 'none';
+    }else{
+        step4.style.display = 'flex';
+    }
+})
+stereoSplit.addEventListener('change',e=>{
+    if (stereoSplit.value === ""){
+        step4.style.display = 'none';
+    }else{
+        step4.style.display = 'flex';
+    }
+})
+surroundSystem.addEventListener('change',e=>{
+    if (surroundSystem.value === ""){
+        step4.style.display = 'none';
+    }else{
+        step4.style.display = 'flex';
+    }
+})
