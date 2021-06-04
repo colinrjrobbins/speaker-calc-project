@@ -16,7 +16,8 @@ document.getElementById('determine').addEventListener('click', e =>{
     let quizWin = new BrowserWindow({
         width: 500,
         height: 700,
-        webPreferences: { nodeIntegration: true},
+        webPreferences: { nodeIntegration: true,
+                          contextIsolation: false},
         show: false
     })
     quizWin.loadFile('./renderer/QuickCheck/quickcheck.html');

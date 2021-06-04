@@ -29,9 +29,9 @@
           <p>How should the basics system be setup?</p>
           <select id='system-type' name='system'>
             <option value=""></option>
-            <option value="mono">Mono Speaker</option>
-            <option value='dual'>Dual Speaker Stereo</option>
-            <option value='surround'>Surround Speakers</option>
+            <option value="Mono">Mono Speaker</option>
+            <option value='Dual'>Dual Speaker Stereo</option>
+            <option value='Surround'>Surround Speakers</option>
           </select>
         </div>
         <div id="step3-1">
@@ -67,22 +67,45 @@
         </div>
         <div id='step4'>
           <p>Will there be a subwoofer with any of these systems?</p>
-          <input type="radio" id="yes" name="subwoofer" value="yes">
-            <label for="yes">Yes</label>
-          <input type="radio" id="no" name="subwoofer" value="no">
-            <label for="no">No</label>
+          <select id='subwoofer' name='sub-system'>
+            <option value=""></option>
+            <option value='Yes'>Yes</option>
+            <option value='No'>No</option>
+          </select>
         </div>
         <div id='step5'>
           <p>How will it be powered?</p>
           <select id='powering' name='power-system'>
             <option value=""></option>
-            <option value="battery">Battery Powered</option>
-            <option value='wall-power'>120V Outlet</option>
-            <option value='both'>Wall Power + Battery Powered</option>
+            <option value="Battery Powered">Battery Powered</option>
+            <option value='120V Outlet'>120V Outlet</option>
+            <option value='Wall Power + Battery Powered'>Wall Power + Battery Powered</option>
           </select>
         </div>
+        <div id='step6'>
+          <p>Any additional modules?</p>
+          <select id='modules' name='mod-systems'>
+            <option value=""></option>
+            <option value='AUX'>AUX Jack</option>
+            <option value='Bluetooth + AUX'>Bluetooth + AUX</option>
+            <option value='RCA + Bluetooth'>RCA + Bluetooth</option>
+            <option value='RCA + AUX + Bluetooth'>RCA + AUX + Bluetooth</option>
+            <option value='Home Surround System'>Home Surround System</option>
+          </select>
+        </div>
+        <div id='summary'>
+          <button type='button' id='complete'>Complete and Summarize</button>
+        </div>
+        <div id='output'>
+          <p id='output-text'>Test Text</p>
+          <p id='client-label'>Client Name:</p>
+          <input type="text" id='client-name' name='name'>
+          <p id='order-label'>Order#:</p>
+          <input type='text' id='order-number' name='orderNum'>
+          <button type='button' id='save'>Save Data</button>
+        </div>
     </div>
-    <script src='./quickcheck.js'></script>
+    <script>require('./quickcheck.js')</script>
     <script>require('../app.js')</script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>

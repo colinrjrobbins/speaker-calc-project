@@ -33,12 +33,27 @@
     flex-flow: row;
 }
 
-#step4 input{
-    margin-left: 7px;
-    margin-right: 7px;
+#step4{
+    display: none;
+    flex-flow: column;
 }
 
 #step5{
+    display: none;
+    flex-flow: column;
+}
+
+#step6{
+    display: none;
+    flex-flow: column;
+}
+
+#summary{
+    display: none;
+    flex-flow: column;
+}
+
+#output{
     display: none;
     flex-flow: column;
 }
