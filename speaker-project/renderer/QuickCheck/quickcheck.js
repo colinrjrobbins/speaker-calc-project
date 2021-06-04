@@ -147,7 +147,6 @@ saveData.addEventListener('click', e =>{
     orderNumber.style.display = 'none';
     saveData.style.display = 'none';
 
-    outputText.textContent = 'Presave.'
     const fs = require('fs')
     fs.writeFile('../../assets/saveFiles/'+ orderNumber + '-' + clientName +'.json', orderJSON, (err) =>{
         if (err){
