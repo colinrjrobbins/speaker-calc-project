@@ -1,9 +1,11 @@
 const { app, BrowserWindow } = require('electron');
 const { session } = require('electron');
 require('@electron/remote/main').initialize();
-const windowStateKeeper = require('electron-window-state')
+const windowStateKeeper = require('electron-window-state');
+const path = require('electron');
+const { ipcMain } = require('electron');
 
-const { Menu, MenuItem } = require('electron');
+const { Menu } = require('electron');
 
 let mainWindow;
 
@@ -62,6 +64,19 @@ function startApp() {
     })
 }
 
-app.on('ready', () => {
+ipcMain.on('quizScreen', (e, args) => {
+    let quizWin = new BrowserWindow({
+        width: 500,
+        height: 700,
+        webPreferences: { nodeIntegration: true,
+                          contextIsolation: false,
+                          preload: './renderer/QuickCheck/quickcheck.js'},
+        show: false
+    })
+    quizWin.loadFile('./renderer/QuickCheck/quickcheck.html');
+    quizWin.on('ready-to-show', quizWin.show)
+})
+
+app.whenReady().then(()=>{
     startApp();
 });

@@ -1,4 +1,6 @@
 const { BrowserWindow } = require('@electron/remote');
+const { ipcRenderer } = require('electron')
+const path = require('path');
 
 document.getElementById('information').addEventListener('click', e => {
     let infoWin = new BrowserWindow({
@@ -12,17 +14,10 @@ document.getElementById('information').addEventListener('click', e => {
     infoWin.on('ready-to-show', infoWin.show)
 });
 
-document.getElementById('determine').addEventListener('click', e =>{
-    let quizWin = new BrowserWindow({
-        width: 500,
-        height: 700,
-        webPreferences: { nodeIntegration: true,
-                          contextIsolation: false},
-        show: false
-    })
-    quizWin.loadFile('./renderer/QuickCheck/quickcheck.html');
-    quizWin.on('ready-to-show', quizWin.show)
-});
+document.getElementById('determine').addEventListener('click',e=>{
+    ipcRenderer.send('quizScreen', 'prepare window')
+})
+
 
 document.getElementById('calculators').addEventListener('click', e=>{
     let calcWin = new BrowserWindow({
